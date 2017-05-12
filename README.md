@@ -1,2 +1,1 @@
-# reactjs-ohjelmointiprojekti
-React.js ohjelmointiprojekti kesä 2017
+# React.js ohjelmointiprojekti kesä 2017
