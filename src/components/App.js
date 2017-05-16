@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './Home';
 import Header from './Header';
 import Footer from './Footer';
+import About from './About';
 import './App.css';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
             <Route render={function () {
               return <h1 className="not-found">Page not found</h1>
             }} />
