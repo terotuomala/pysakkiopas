@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import './Header.css';
 
 class Header extends Component {
@@ -13,13 +13,16 @@ class Header extends Component {
           </Navbar.Brand>
         </Navbar.Header>
         <Navbar.Collapse>
-          <Nav pullRight>
-            <NavItem eventKey={1} href="#">Tietoja</NavItem>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    )
+          <Nav>
+            <NavDropdown eventKey={1} title="Suomi">
+              <MenuItem eventKey={1.1}>English</MenuItem>
+            </NavDropdown>
+            <NavItem eventKey={2} href="#">Tietoja</NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      )
+    }
   }
-}
 
-export default Header;
+  export default Header;

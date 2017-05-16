@@ -10,9 +10,22 @@
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   text-transform: uppercase;
 }
-.navbar li a, .navbar .navbar-brand {
+
+.navbar .navbar-brand {
   color: #fff !important;
 }
+
+.navbar li a {
+  color: #fff !important;
+  background-color: #2188B5;
+}
+
 .navbar-nav li a:hover, .navbar-nav li.active a {
   color: #fff !important;
+  background-color: #2188B5;
+}
+
+.navbar .navbar-nav > li.open > a:hover,
+.navbar .navbar-nav > li.open > a:focus {
+  background-color: #2188B5;
 }
