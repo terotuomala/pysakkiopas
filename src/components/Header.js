@@ -15,10 +15,10 @@ class Header extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavDropdown eventKey={1} title="Suomi">
+            {/* <NavDropdown eventKey={1} title="Suomi">
               <MenuItem eventKey={1.1}>English</MenuItem>
-            </NavDropdown>
-            <NavItem eventKey={2}><NavLink to="/about">Tietoja</NavLink></NavItem>
+            </NavDropdown> */}
+            <NavItem eventKey={2}><NavLink to="/tietoja">Tietoja</NavLink></NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
