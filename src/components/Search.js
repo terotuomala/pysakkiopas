@@ -6,8 +6,10 @@ import './Search.css';
 
 const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-const names = [];
-console.log(api.fetchStopInfo());
+// const names = ['Sipoontie', 'Tie'];
+const names = api.fetchStopsByName("sipoontie");
+console.log(names)
+
 
 const getSuggestions = value => {
   const escapedValue = escapeRegexCharacters(value.trim());
