@@ -48,6 +48,14 @@ class Search extends Component {
     });
   };
 
+  onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
+    this.setState({
+      value: '',
+      name: suggestion.name,
+      code: suggestion.code
+    })
+  };
+
   storeInputReference = autosuggest => {
     if (autosuggest !== null) {
       this.input = autosuggest.input;
@@ -63,16 +71,20 @@ class Search extends Component {
     };
 
     return (
+      <div>
       <Autosuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
+        onSuggestionSelected={this.onSuggestionSelected}
         inputProps={inputProps}
         ref={this.storeInputReference}
       />
+      <p>{this.state.name}</p>
+      <p>{this.state.code}</p>
+    </div>
     );
   }
 }
