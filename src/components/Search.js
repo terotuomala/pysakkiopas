@@ -37,7 +37,9 @@ class Search extends Component {
   onSuggestionsFetchRequested = ({ value }) => {
     api.fetchStopsByName(value).then((response) => {
       this.setState({
-        suggestions: response
+        suggestions: response,
+        name: '',
+        code: ''
       })
     })
   };
