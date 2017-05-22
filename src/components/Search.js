@@ -4,60 +4,48 @@ import Autosuggest from 'react-autosuggest';
 import api from '../utils/api';
 import './Search.css';
 
-const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-// const names = ['Sipoontie', 'Tie'];
-const names = api.fetchStopsByName("sipoontie");
-console.log(names)
-
-
-const getSuggestions = value => {
-  const escapedValue = escapeRegexCharacters(value.trim());
-
-  if (escapedValue === '') {
-    return [];
-  }
-
-  const regex = new RegExp('^' + escapedValue, 'i');
-
-  return names.filter(name => regex.test(name));
+function getSuggestionValue(suggestion) {
+  return suggestion.name;
 }
 
-const getSuggestionValue = suggestion => suggestion;
-
-const renderSuggestion = suggestion => suggestion;
-
-const renderInputComponent = inputProps => (
-  <div className="inputContainer">
-    <input {...inputProps}/>
-  </div>
-);
+function renderSuggestion(suggestion) {
+  return (
+    <span>{suggestion.name}</span>
+  );
+}
 
 class Search extends Component {
-
   constructor() {
     super();
 
     this.state = {
       value: '',
-      suggestions: []
+      suggestions: [],
     };
   }
 
-  onChange = (event, {newValue, method}) => {
-    this.setState({value: newValue});
+  onChange = (event, { newValue }) => {
+    this.setState({
+      value: newValue
+    });
   };
 
-  onSuggestionsFetchRequested = ({value}) => {
-    this.setState({suggestions: getSuggestions(value)});
+  onSuggestionsFetchRequested = ({ value }) => {
+    api.fetchStopsByName(value).then((response) => {
+      this.setState({
+        suggestions: response
+      })
+    })
   };
 
   onSuggestionsClearRequested = () => {
-    this.setState({suggestions: []});
+    this.setState({
+      suggestions: []
+    });
   };
 
   render() {
-    const {value, suggestions} = this.state;
+    const { value, suggestions} = this.state;
     const inputProps = {
       placeholder: "Etsi pysäkkejä (esim. sipoontie, V8502..)",
       value,
@@ -65,13 +53,13 @@ class Search extends Component {
     };
 
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue} renderSuggestion={renderSuggestion}
-        inputProps={inputProps} renderInputComponent={renderInputComponent}
-      />
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps} />
     );
   }
 }
