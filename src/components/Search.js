@@ -24,6 +24,10 @@ class Search extends Component {
     };
   }
 
+  componentDidMount() {
+    this.input.focus();
+  }
+
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
@@ -44,6 +48,12 @@ class Search extends Component {
     });
   };
 
+  storeInputReference = autosuggest => {
+    if (autosuggest !== null) {
+      this.input = autosuggest.input;
+    }
+  };
+
   render() {
     const { value, suggestions} = this.state;
     const inputProps = {
@@ -53,13 +63,16 @@ class Search extends Component {
     };
 
     return (
-        <Autosuggest
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          inputProps={inputProps} />
+      <Autosuggest
+        suggestions={suggestions}
+        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        getSuggestionValue={getSuggestionValue}
+        renderSuggestion={renderSuggestion}
+        inputProps={inputProps}
+        inputProps={inputProps}
+        ref={this.storeInputReference}
+      />
     );
   }
 }
