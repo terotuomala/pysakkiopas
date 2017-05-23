@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Grid} from 'react-bootstrap';
+import {Grid, Table} from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
 import Moment from 'moment';
 import api from '../utils/api';
@@ -20,14 +20,29 @@ function convertSeconds(seconds) {
 }
 
 function RenderDepartures(props) {
-    return (
-      <div>
-        <h3>{props.departureList.name} {props.departureList.code}</h3>
-        {props.departureList.departures.map(function(departure) {
-          return <p>{convertSeconds(departure.scheduledArrival)} {departure.trip.route.shortName}</p>
-        })}
-      </div>
-    )
+  return (
+    <div>
+      <h3>{props.departureList.name} {props.departureList.code}</h3>
+      <Table responsive>
+        <thead>
+          <tr>
+            <th>Kello</th>
+            <th>Linja</th>
+          </tr>
+        </thead>
+        <tbody>
+            {props.departureList.departures.map(function(departure, index) {
+              return (
+                <tr key={index}>
+                  <td>{convertSeconds(departure.scheduledArrival)}</td>
+                  <td>{departure.trip.route.shortName}</td>
+                </tr>
+              )
+            })}
+        </tbody>
+      </Table>
+    </div>
+  )
 }
 
 class Search extends Component {
@@ -97,18 +112,18 @@ class Search extends Component {
 
     return (
       <div>
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        onSuggestionSelected={this.onSuggestionSelected}
-        inputProps={inputProps}
-        ref={this.storeInputReference}
-      />
-      <RenderDepartures departureList={this.state}/>
-    </div>
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          onSuggestionSelected={this.onSuggestionSelected}
+          inputProps={inputProps}
+          ref={this.storeInputReference}
+        />
+        <RenderDepartures departureList={this.state}/>
+      </div>
     );
   }
 }
