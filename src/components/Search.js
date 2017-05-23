@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Grid} from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
+import Moment from 'moment';
 import api from '../utils/api';
 import './Search.css';
 
@@ -14,6 +15,21 @@ function renderSuggestion(suggestion) {
   );
 }
 
+function convertSeconds(seconds) {
+  return Moment().startOf('day').seconds(seconds).format('H:mm');
+}
+
+function RenderDepartures(props) {
+    return (
+      <div>
+        <h3>{props.departureList.name} {props.departureList.code}</h3>
+        {props.departureList.departures.map(function(departure) {
+          return <p>{convertSeconds(departure.scheduledArrival)} {departure.trip.route.shortName}</p>
+        })}
+      </div>
+    )
+}
+
 class Search extends Component {
   constructor() {
     super();
@@ -21,6 +37,7 @@ class Search extends Component {
     this.state = {
       value: '',
       suggestions: [],
+      departures: []
     };
   }
 
@@ -39,7 +56,8 @@ class Search extends Component {
       this.setState({
         suggestions: response,
         name: '',
-        code: ''
+        code: '',
+        departures: []
       })
     })
   };
@@ -51,10 +69,15 @@ class Search extends Component {
   };
 
   onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
-    this.setState({
-      value: '',
-      name: suggestion.name,
-      code: suggestion.code
+    api.fetchStopDepartures(suggestion.gtfsId).then((response) => {
+      this.setState({
+        value: '',
+        name: suggestion.name,
+        code: suggestion.code,
+        departures: response,
+        suggestions: []
+      })
+      console.log(response)
     })
   };
 
@@ -84,8 +107,7 @@ class Search extends Component {
         inputProps={inputProps}
         ref={this.storeInputReference}
       />
-      <p>{this.state.name}</p>
-      <p>{this.state.code}</p>
+      <RenderDepartures departureList={this.state}/>
     </div>
     );
   }
