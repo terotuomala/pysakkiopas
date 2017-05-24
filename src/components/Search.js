@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Grid, Table} from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
-import Moment from 'moment';
+import Departures from './Departures';
 import api from '../utils/api';
 import './Search.css';
 
@@ -13,36 +13,6 @@ function renderSuggestion(suggestion) {
   return (
     <span>{suggestion.name}</span>
   );
-}
-
-function convertSeconds(seconds) {
-  return Moment().startOf('day').seconds(seconds).format('H:mm');
-}
-
-function RenderDepartures(props) {
-  return (
-    <div>
-      <h3>{props.departureList.name} {props.departureList.code}</h3>
-      <Table responsive>
-        <thead>
-          <tr>
-            <th>Kello</th>
-            <th>Linja</th>
-          </tr>
-        </thead>
-        <tbody>
-            {props.departureList.departures.map(function(departure, index) {
-              return (
-                <tr key={index}>
-                  <td>{convertSeconds(departure.scheduledArrival)}</td>
-                  <td>{departure.trip.route.shortName}</td>
-                </tr>
-              )
-            })}
-        </tbody>
-      </Table>
-    </div>
-  )
 }
 
 class Search extends Component {
@@ -122,7 +92,7 @@ class Search extends Component {
           inputProps={inputProps}
           ref={this.storeInputReference}
         />
-        <RenderDepartures departureList={this.state}/>
+        <Departures departureList={this.state} />
       </div>
     );
   }
