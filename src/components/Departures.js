@@ -12,7 +12,7 @@ function RenderDepartures(props) {
   return (
     <div>
       <h3>{props.departureList.name} {props.departureList.code}</h3>
-      <Table responsive>
+      <Table responsive className="table-style">
         <thead>
           <tr className="active">
             <th>Lähtee</th>
@@ -24,8 +24,8 @@ function RenderDepartures(props) {
             {props.departureList.departures.map(function(departure, index) {
               return (
                 <tr key={index}>
-                  <td>{convertSeconds(departure.scheduledArrival)}</td>
-                  <td className="p-blue"><Icon/><span className="bus-number">{departure.trip.route.shortName}</span></td>
+                  <td className="td-bold">{convertSeconds(departure.scheduledArrival)}</td>
+                  <td className="td-blue"><Icon/><span className="bus-number">{departure.trip.route.shortName}</span></td>
                   <td>{departure.headsign}</td>
                 </tr>
               )
