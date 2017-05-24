@@ -8,9 +8,9 @@ class Home extends Component {
   render() {
     return (
       <Grid>
-        <div className="col-xs-12 col-sm-6 col-sm-push-3 col-md-6 col-md-push-3">
+
         <Search />
-      </div>
+
       </Grid>
     )
   }

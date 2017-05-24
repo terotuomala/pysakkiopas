@@ -2,13 +2,12 @@
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
-.td-bold {
+.td-bold, .td-blue {
   font-weight: 600;
 }
 
 .td-blue {
   color: #2188B5;
-  font-weight: 600;
 }
 
 .bus-number {
