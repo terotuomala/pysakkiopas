@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Grid, Table} from 'react-bootstrap';
 import Moment from 'moment';
+import Icon from './Icon.js';
+import './Departures.css';
 
 function convertSeconds(seconds) {
   return Moment().startOf('day').seconds(seconds).format('H:mm');
@@ -12,9 +14,10 @@ function RenderDepartures(props) {
       <h3>{props.departureList.name} {props.departureList.code}</h3>
       <Table responsive>
         <thead>
-          <tr>
-            <th>Kello</th>
+          <tr className="active">
+            <th>Lähtee</th>
             <th>Linja</th>
+            <th>Määränpää</th>
           </tr>
         </thead>
         <tbody>
@@ -22,7 +25,8 @@ function RenderDepartures(props) {
               return (
                 <tr key={index}>
                   <td>{convertSeconds(departure.scheduledArrival)}</td>
-                  <td>{departure.trip.route.shortName}</td>
+                  <td className="p-blue"><Icon/><span className="bus-number">{departure.trip.route.shortName}</span></td>
+                  <td>{departure.headsign}</td>
                 </tr>
               )
             })}

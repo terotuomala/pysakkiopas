@@ -62,7 +62,6 @@ class Search extends Component {
         departures: response,
         suggestions: []
       })
-      console.log(response)
     })
   };
 

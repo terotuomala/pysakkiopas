@@ -10,7 +10,7 @@ function queryStopsByName(name) {
 
 function queryStopDepartures(id) {
   return axios.post(url, {
-    "query": '{stop(id:"' + id + '"){name code stoptimesWithoutPatterns(numberOfDepartures:10){scheduledArrival trip{route{id shortName longName}}}}}'
+    "query": '{stop(id:"' + id + '"){name code stoptimesWithoutPatterns(numberOfDepartures:10){scheduledArrival headsign trip{route{id shortName longName}}}}}'
   })
 };
 
