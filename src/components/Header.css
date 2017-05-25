@@ -30,6 +30,10 @@
   background-color: #2188B5;
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
 .jumbotron {
   background-color: #2188B5;
   padding: 70px 25px;
