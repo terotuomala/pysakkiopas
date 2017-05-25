@@ -5,7 +5,7 @@ class About extends Component {
   render() {
     return (
       <Grid>
-        <h1>Tietoja pysäkkioppaasta</h1>
+        <h3>Tietoja pysäkkioppaasta</h3>
       </Grid>
     )
   }
