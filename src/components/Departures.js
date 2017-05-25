@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Grid, Table} from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
 import Moment from 'moment';
 import Icon from './Icon.js';
 import './Departures.css';

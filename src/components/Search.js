@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Grid, Table} from 'react-bootstrap';
+import {Col} from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
 import Departures from './Departures';
 import api from '../utils/api';
