@@ -16,7 +16,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/tietoja" component={About} />
             <Route render={function () {
-              return <h1 className="not-found">Page not found</h1>
+              return <h3 className="not-found">Virhe 404: Sivua ei löydy</h3>
             }} />
           </Switch>
           <Footer />
