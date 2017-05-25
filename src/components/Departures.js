@@ -11,7 +11,7 @@ function convertSeconds(seconds) {
 function RenderDepartures(props) {
   return (
     <div>
-      <h3>{props.departureList.name} {props.departureList.code}</h3>
+      <h3>{props.departureList.name} - {props.departureList.code}</h3>
       <Table responsive className="table-style">
         <thead>
           <tr className="active">

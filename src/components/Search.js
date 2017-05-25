@@ -12,7 +12,7 @@ function getSuggestionValue(suggestion) {
 
 function renderSuggestion(suggestion) {
   return (
-    <span>{suggestion.name}</span>
+    <span>{suggestion.name} - {suggestion.code}</span>
   );
 }
 
@@ -50,7 +50,7 @@ class Search extends Component {
   onSuggestionsFetchRequested = ({ value }) => {
     api.fetchStopsByName(value).then((response) => {
       this.setState({
-        suggestions: response,
+        suggestions: response
       })
     })
   };
@@ -66,6 +66,8 @@ class Search extends Component {
     api.fetchStopDepartures(suggestion.gtfsId).then((response) => {
       this.setState({
         value: '',
+        name: suggestion.name,
+        code: suggestion.code,
         departures: response,
         suggestions: [],
         hasContent: true
