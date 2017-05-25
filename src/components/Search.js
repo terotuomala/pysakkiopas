@@ -3,6 +3,7 @@ import {Col, Grid, Table} from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
 import Departures from './Departures';
 import api from '../utils/api';
+import SearchIcon from './SearchIcon';
 import './Search.css';
 
 function getSuggestionValue(suggestion) {
@@ -14,6 +15,13 @@ function renderSuggestion(suggestion) {
     <span>{suggestion.name}</span>
   );
 }
+
+const renderInputComponent = inputProps => (
+  <div className="inputContainer">
+    <SearchIcon />
+    <input {...inputProps} />
+  </div>
+);
 
 class Search extends Component {
   constructor() {
@@ -77,7 +85,7 @@ class Search extends Component {
   render() {
     const { value, suggestions} = this.state;
     const inputProps = {
-      placeholder: "Etsi pysäkkejä (esim. sipoontie, V8502..)",
+      placeholder: "Etsi pysäkkejä nimellä (esim. jumbo, sipoontie, viikki...)",
       value,
       onChange: this.onChange
     };
@@ -92,6 +100,7 @@ class Search extends Component {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             onSuggestionSelected={this.onSuggestionSelected}
+            renderInputComponent={renderInputComponent}
             inputProps={inputProps}
             ref={this.storeInputReference}
           />
