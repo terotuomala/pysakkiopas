@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
+import {LinkContainer} from 'react-router-bootstrap';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem, FormControl, FormGroup, Glyphicon, InputGroup, Jumbotron} from 'react-bootstrap';
 import './Header.css';
 
@@ -19,7 +20,9 @@ class Header extends Component {
             {/* <NavDropdown eventKey={1} title="Suomi">
               <MenuItem eventKey={1.1}>English</MenuItem>
             </NavDropdown> */}
-            <NavItem eventKey={2}><NavLink to="/tietoja">Tietoja</NavLink></NavItem>
+            <LinkContainer to="/tietoja">
+              <NavItem eventKey={1}>Tietoja</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -16,12 +16,14 @@ function renderSuggestion(suggestion) {
   );
 }
 
-const renderInputComponent = inputProps => (
-  <div className="inputContainer">
-    <SearchIcon />
-    <input {...inputProps} />
-  </div>
-);
+function renderInputComponent(inputProps) {
+  return (
+    <div className="inputContainer">
+      <SearchIcon />
+      <input {...inputProps} />
+    </div>
+  )
+};
 
 class Search extends Component {
   constructor() {
