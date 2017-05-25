@@ -51,9 +51,6 @@ class Search extends Component {
     api.fetchStopsByName(value).then((response) => {
       this.setState({
         suggestions: response,
-        name: '',
-        code: '',
-        departures: []
       })
     })
   };
@@ -69,8 +66,6 @@ class Search extends Component {
     api.fetchStopDepartures(suggestion.gtfsId).then((response) => {
       this.setState({
         value: '',
-        name: suggestion.name,
-        code: suggestion.code,
         departures: response,
         suggestions: [],
         hasContent: true
