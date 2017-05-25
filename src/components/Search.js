@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Grid, Table} from 'react-bootstrap';
+import {Col, Grid, Table} from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
 import Departures from './Departures';
 import api from '../utils/api';
@@ -81,6 +81,7 @@ class Search extends Component {
 
     return (
       <div>
+        <Col lg={8} lgOffset={2} md={10} mdOffset={1}>
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -91,7 +92,10 @@ class Search extends Component {
           inputProps={inputProps}
           ref={this.storeInputReference}
         />
+      </Col>
+      <Col lg={8} lgOffset={2} md={10} mdOffset={1}>
         <Departures departureList={this.state} />
+      </Col>
       </div>
     );
   }
