@@ -38,8 +38,13 @@ function RenderDepartures(props) {
 
 class Departures extends Component {
   render() {
+    if (this.props.departureList.hasContent) {
+      return (
+        <RenderDepartures departureList={this.props.departureList}/>
+      )
+    }
     return (
-      <RenderDepartures departureList={this.props.departureList}/>
+      <div></div>
     )
   }
 }

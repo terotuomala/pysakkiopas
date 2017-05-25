@@ -22,7 +22,8 @@ class Search extends Component {
     this.state = {
       value: '',
       suggestions: [],
-      departures: []
+      departures: [],
+      hasContent: false
     };
   }
 
@@ -49,7 +50,8 @@ class Search extends Component {
 
   onSuggestionsClearRequested = () => {
     this.setState({
-      suggestions: []
+      suggestions: [],
+      hasContent: false
     });
   };
 
@@ -60,7 +62,8 @@ class Search extends Component {
         name: suggestion.name,
         code: suggestion.code,
         departures: response,
-        suggestions: []
+        suggestions: [],
+        hasContent: true
       })
     })
   };
@@ -82,20 +85,20 @@ class Search extends Component {
     return (
       <div>
         <Col lg={8} lgOffset={2} md={10} mdOffset={1}>
-        <Autosuggest
-          suggestions={suggestions}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          onSuggestionSelected={this.onSuggestionSelected}
-          inputProps={inputProps}
-          ref={this.storeInputReference}
-        />
-      </Col>
-      <Col lg={8} lgOffset={2} md={10} mdOffset={1}>
-        <Departures departureList={this.state} />
-      </Col>
+          <Autosuggest
+            suggestions={suggestions}
+            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+            getSuggestionValue={getSuggestionValue}
+            renderSuggestion={renderSuggestion}
+            onSuggestionSelected={this.onSuggestionSelected}
+            inputProps={inputProps}
+            ref={this.storeInputReference}
+          />
+        </Col>
+        <Col lg={8} lgOffset={2} md={10} mdOffset={1}>
+          <Departures departureList={this.state} />
+        </Col>
       </div>
     );
   }
