@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Table} from 'react-bootstrap';
 import Moment from 'moment';
-import Icon from './Icon.js';
+import BusIcon from './BusIcon.js';
 import './Departures.css';
 
 function convertSeconds(seconds) {
@@ -25,7 +25,7 @@ function RenderDepartures(props) {
               return (
                 <tr key={index}>
                   <td className="td-bold">{convertSeconds(departure.scheduledArrival)}</td>
-                  <td className="td-blue"><Icon/><span className="bus-number">{departure.trip.route.shortName}</span></td>
+                  <td className="td-blue"><BusIcon/><span className="bus-number">{departure.trip.route.shortName}</span></td>
                   <td>{departure.headsign}</td>
                 </tr>
               )
