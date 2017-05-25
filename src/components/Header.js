@@ -12,6 +12,7 @@ class Header extends Component {
           <Navbar.Brand>
             <NavLink to="/"><i className="fa fa-map-o" aria-hidden="true"></i> Pysäkkiopas</NavLink>
           </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
