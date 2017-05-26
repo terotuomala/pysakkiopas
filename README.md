@@ -1,5 +1,6 @@
+https://travis-ci.org/terotuomala/pysakkiopas.svg?branch=master
+
 # Pysäkkiopas
-React.js ohjelmointiprojekti kesä 2017
 Tämän projektin ideana on tarjota yksinkertainen käyttöliittymä HSL:n pysäkkiaikaulujen hakemiseen.
 
 ### Projektin käyttö paikallisesti:
