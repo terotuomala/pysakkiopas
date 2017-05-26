@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Departures from '../src/components/Departures';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  const hasContent = false
+  ReactDOM.render(<Departures departureList={hasContent}/>, div);
 });
