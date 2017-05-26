@@ -11,6 +11,6 @@ test('expect to receive stop info from api', () => {
 test('expect to receive stop departures from api', () => {
   expect.assertions(1);
   return api.fetchStopDepartures('HSL:4860242').then(data => {
-    expect(data[0].headsign).toBe('Pohjois-Nikinmäki');
+    expect(data[0].headsign).toBe('Pornainen Halkia via Nikkilä');
   });
 });
