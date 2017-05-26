@@ -1,7 +1,9 @@
 {
-  "name": "react-ohjelmointiprojekti",
-  "version": "0.1.0",
-  "private": true,
+  "name": "pysakkiopas",
+  "version": "1.0.0",
+  "description": "Käyttöliittymä HSL:n pysäkkiaikaulujen hakemiseen",
+  "repository": "github:terotuomala/pysakkiopas",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.16.1",
     "moment": "^2.18.1",
