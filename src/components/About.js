@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import {Grid} from 'react-bootstrap';
+import {Col, Grid} from 'react-bootstrap';
 
 class About extends Component {
   render() {
     return (
       <Grid>
+        <Col lg={8} lgOffset={2} md={10} mdOffset={1}>
         <h3>Tietoja pysäkkioppaasta</h3>
+      </Col>
       </Grid>
     )
   }
