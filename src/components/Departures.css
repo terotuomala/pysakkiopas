@@ -1,4 +1,4 @@
-.table-style {
+body {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -13,4 +13,19 @@
 .bus-number {
   padding: 0 5px;
   vertical-align: top;
+}
+
+.popover-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+}
+
+.fa-map-marker {
+  color: #2188B5;
+  cursor: pointer;
+}
+
+.h3-inline {
+  display: inline-flex;
+  margin-right: 4px;
 }

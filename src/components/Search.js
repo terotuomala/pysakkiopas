@@ -50,7 +50,8 @@ class Search extends Component {
   onSuggestionsFetchRequested = ({ value }) => {
     api.fetchStopsByName(value).then((response) => {
       this.setState({
-        suggestions: response
+        suggestions: response,
+        hasContent: false
       })
     })
   };
@@ -58,7 +59,6 @@ class Search extends Component {
   onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],
-      hasContent: false
     });
   };
 
@@ -68,6 +68,8 @@ class Search extends Component {
         value: '',
         name: suggestion.name,
         code: suggestion.code,
+        lat: suggestion.lat,
+        lon: suggestion.lon,
         departures: response,
         suggestions: [],
         hasContent: true
