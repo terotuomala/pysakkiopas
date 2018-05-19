@@ -1,15 +1,22 @@
 language: node_js
 node_js:
   - lts/*
+
 cache:
   directories:
     - node_modules
-script:
-  - npm test
-  - npm run build
 
-deploy:
-  provider: firebase
-  token:
-    secure: "KJQiBYesrTeCpvFaW6i9ebqr6jlrdNMKOtTjE3xjNdmYWkiEh5m4Ae9iP9K/6B9RhA4nwe6d+RS1yCqjHczOuTacXO8NnVgFfGbJvYf/UcK5uqShAnmu0w/+29igr+0Ztr0MfCCeJsQVIcogejqW3IEnclUUXtjJzjAZDyd7pUWN1zy7HGvtSF/HCKUr2JNw2jJYdWw6XjjY4vZfNpTps2jv2KItgw1nDlBLMVzzybhX55BhpzpjYkGD0aZ5iYaZvL2ZaEv/RTwXeySTETDLtq947o2XtAXiTBv7PV1Dd7oGwlNwsFksRzEKo7zJHwVaL6acc3tzDFp/h7lqRj4N6Ya8nOwQ0Vkz5Hi9z8rQKMqR/pjVVwZPJwYwyJ/eQ27M8bRhj+bCDeUFB3lofExVQROoUjafKkQp/zVD/B7hXUwhPV7ZvPrTp/4O02amJX+3NukM5/zg0AftNELDqBQjW1LEkeB4riXdRj1VtT3Be+ecNckDv6eKTfHVbT3XtwmCUCQcsZO4YfEKwnO2KH+NglM+G7XsQVrPFWV0Gv2TTGMFFugtSRvscJ4r7wKg+ooJyX6N98Ieshu4lQG1rVE+TVwUHMyVTqxgqMS2FkBiuT+rXCC4b25mAz8EKiriDBSifHJHL8OxXYTPFuRXIdqWExHn077+prlJL/Ic8hgcokg="
-  project: "pysakkiopas"
+branches:
+  only:
+    - master
+
+before_script:
+  - yarn global add firebase-tools
+  - yarn
+
+script:
+  - yarn test
+  - yarn build
+
+after_success:
+- firebase deploy --token $FIREBASE_TOKEN --non-interactive
