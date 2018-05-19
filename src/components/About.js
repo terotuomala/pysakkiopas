@@ -7,7 +7,7 @@ class About extends Component {
     return (
       <Grid>
         <Col lg={8} lgOffset={2} md={2} mdOffset={1} className="text-center">
-          <a href="https://github.com/terotuomala/pysakkiopas" target="blank"><i className="fa fa-github" aria-hidden="true"></i></a>
+          <a href="https://github.com/terotuomala/pysakkiopas" target="blank"><i className="fa fa-github"></i></a>
         </Col>
       </Grid>
     )

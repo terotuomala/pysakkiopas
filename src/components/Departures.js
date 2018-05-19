@@ -19,7 +19,7 @@ function RenderDepartures(props) {
     <div>
       <h3 className="h3-inline">{props.departureList.name} - {props.departureList.code}</h3>
       <OverlayTrigger placement="bottom" trigger="click" rootClose overlay={popover}>
-        <h3 className="h3-inline"><i className="fa fa-map-marker" aria-hidden="true"></i></h3>
+        <h3 className="h3-inline"><i className="fa fa-map-marker"></i></h3>
       </OverlayTrigger>
       <Table responsive>
         <thead>
