@@ -48,7 +48,7 @@ class Search extends Component {
   };
 
   onSuggestionsFetchRequested = ({ value }) => {
-    api.fetchStopsByName(value).then((response) => {
+    api.queryStopsByName(value).then((response) => {
       this.setState({
         suggestions: response,
         hasContent: false
@@ -63,7 +63,7 @@ class Search extends Component {
   };
 
   onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
-    api.fetchStopDepartures(suggestion.gtfsId).then((response) => {
+    api.queryStopDepartures(suggestion.gtfsId).then((response) => {
       this.setState({
         value: '',
         name: suggestion.name,

@@ -7,8 +7,8 @@ function RenderMap(props) {
   return (
     <Map center={position} zoom={17}>
       <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
       />
       <Marker position={position}>
         <Popup>
