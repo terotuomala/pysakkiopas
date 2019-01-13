@@ -6,9 +6,8 @@ import Location from './Location';
 import BusIcon from './BusIcon.js';
 import './Departures.css';
 
-function convertSeconds(seconds) {
-  return Moment().startOf('day').seconds(seconds).format('H:mm');
-}
+const convertScheduledArrival = (seconds) => Moment().startOf('day').seconds(seconds).format('H:mm');
+const convertRealtimeArrival = (seconds) => Moment().startOf('day').seconds(seconds).format('H:mm:ss');
 
 function RenderDepartures(props) {
   const popover = (
@@ -34,7 +33,7 @@ function RenderDepartures(props) {
           {props.departureList.departures.map((departure, index) => {
             return (
               <tr key={index}>
-                <td className="td-bold">{convertSeconds(departure.scheduledArrival)} {departure.realtimeArrival !== departure.scheduledArrival ? <><IosArrowForward className="arrow" fontSize="20px" color="#2188B5" beat={true} /> {convertSeconds(departure.realtimeArrival)}</> : null}</td>
+                <td className="td-bold">{convertScheduledArrival(departure.scheduledArrival)} {departure.realtimeArrival !== departure.scheduledArrival ? <><IosArrowForward className="arrow" fontSize="20px" color="#2188B5" beat={true} /> {convertRealtimeArrival(departure.realtimeArrival)}</> : null}</td>
                 <td className="td-blue"><BusIcon/><span className="bus-number">{departure.trip.route.shortName}</span></td>
                 <td>{departure.headsign}</td>
               </tr>
