@@ -11,7 +11,7 @@ const queryStopsByName = async (name) => {
 
 const queryStopDepartures = async (id) => {
   const response = await axios.post(url, {
-    "query": '{stop(id:"' + id + '"){name code stoptimesWithoutPatterns(numberOfDepartures:10){scheduledArrival headsign trip{route{id shortName longName}}}}}'
+    "query": '{stop(id:"' + id + '"){name code stoptimesWithoutPatterns(numberOfDepartures:10){scheduledArrival realtimeArrival realtime headsign trip{route{id shortName longName}}}}}'
   })
   return response.data.data.stop.stoptimesWithoutPatterns
 }
