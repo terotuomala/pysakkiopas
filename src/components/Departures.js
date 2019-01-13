@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Popover, OverlayTrigger } from 'react-bootstrap';
+import IosArrowForward from 'react-ionicons/lib/IosArrowForward';
 import Moment from 'moment';
 import Location from './Location';
 import BusIcon from './BusIcon.js';
@@ -30,10 +31,10 @@ function RenderDepartures(props) {
           </tr>
         </thead>
         <tbody>
-          {props.departureList.departures.map(function(departure, index) {
+          {props.departureList.departures.map((departure, index) => {
             return (
               <tr key={index}>
-                <td className="td-bold">{convertSeconds(departure.scheduledArrival)}</td>
+                <td className="td-bold">{convertSeconds(departure.scheduledArrival)} {departure.realtimeArrival !== departure.scheduledArrival ? <><IosArrowForward className="arrow" fontSize="20px" color="#2188B5" beat={true} /> {convertSeconds(departure.realtimeArrival)}</> : null}</td>
                 <td className="td-blue"><BusIcon/><span className="bus-number">{departure.trip.route.shortName}</span></td>
                 <td>{departure.headsign}</td>
               </tr>
