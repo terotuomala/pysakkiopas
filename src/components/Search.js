@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Col} from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
 import Departures from './Departures';
-import api from '../utils/api';
+import routingApi from '../utils/routing-api';
 import SearchIcon from './SearchIcon';
 import './Search.css';
 
@@ -48,7 +48,7 @@ class Search extends Component {
   };
 
   onSuggestionsFetchRequested = ({ value }) => {
-    api.queryStopsByName(value).then((response) => {
+    routingApi.queryStopsByName(value).then((response) => {
       this.setState({
         suggestions: response,
         hasContent: false
@@ -63,7 +63,7 @@ class Search extends Component {
   };
 
   onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
-    api.queryStopDepartures(suggestion.gtfsId).then((response) => {
+    routingApi.queryStopDepartures(suggestion.gtfsId).then((response) => {
       this.setState({
         value: '',
         name: suggestion.name,

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Table, Popover, OverlayTrigger} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Table, Popover, OverlayTrigger } from 'react-bootstrap';
 import Moment from 'moment';
 import Location from './Location';
 import BusIcon from './BusIcon.js';

@@ -2,6 +2,10 @@ body {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
+.arrow {
+  vertical-align: top;
+}
+
 .td-bold, .td-blue {
   font-weight: 600;
 }
