@@ -1,10 +1,16 @@
-# Pysäkkiopas [![Build Status](https://travis-ci.org/terotuomala/pysakkiopas.svg?branch=master)](https://travis-ci.org/terotuomala/pysakkiopas)
-Tämä sovellus on toteutettu Helsingin yliopiston kevään 2017 React-ohjelmointiprojekti kurssin projektityönä. Sovelluksen tarkoituksena on tarjota yksinkertainen käyttöliittymä HSL:n bussien pysäkkiaikaulujen etsimiseen. Tietolähteenä käytetään digitransit.fi tarjoamaa [Routing API:a](https://digitransit.fi/en/developers/services-and-apis/1-routing-api/). Pysäkin valitsemisen jälkeen sovellus näyttää kymmenen seuraavaa lähtevää bussia ja niiden tiedot (kellonaika, linja ja määränpää).
+# Pysäkkiopas
+This application was originally developed 2017 in a React programming course hosted by University of Helsinki. The purpose of this application is to provide a simple user interface for searching HSL bus stop schedules. The data source for the timetables and bus stops is provided by digitransit.fi [Routing API](https://digitransit.fi/en/developers/services-and-apis/1-routing-api/).
 
-Sovellus löytyy osoitteesta: https://pysakkiopas.firebaseapp.com/
+The application can be found from: https://pysakkiopas.netlify.com/
 
-### Projektin käyttö paikallisesti:
-- Lataa projekti komennolla `git clone https://github.com/terotuomala/pysakkiopas.git`
-- Asenna riippuvuudet komennolla `npm install`
-- Aja testit komennolla `npm test`
-- Käynnistä paikallinen kehitysympäristö komennolla `npm start`
+### Features
+The details for the next 10 outgoing busses from the selected bus stop with the following details:
+- Line number and destination of the bus
+- Scheduled arrival time
+- Real-time arrival time
+- A map to display the location of the bus stop
+
+### Project usage locally:
+- Clone the project: `git clone https://github.com/terotuomala/pysakkiopas.git`
+- Install the dependencies: `npm install`
+- Start the local development environment: `npm start`
